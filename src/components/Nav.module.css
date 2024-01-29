@@ -1,0 +1,18 @@
+nav{
+    background-color: #3f61fb;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    color: #e9e9e9;
+    align-items: center;
+}
+
+li{
+    list-style: none;
+    margin-right: 20px;
+}
+
+a{
+    text-decoration: none;
+    color: #e9e9e9;
+}
