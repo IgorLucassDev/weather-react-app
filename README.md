@@ -18,6 +18,6 @@ Preview: https://igorlucassdev-weather.netlify.app/
 
 ## Run
 * `Use npm install` to install node dependences
-* `cd weather`
+* `cd weather-react-app`
 * `npm start` to run
 
