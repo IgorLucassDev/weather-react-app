@@ -1,8 +1,14 @@
 import styles from './Weather.module.css';
 import { useState } from 'react';
+import Temperature from './WeatherImages/temperature-low-solid.svg'
+import Humidity from './WeatherImages/droplet-solid.svg'
+import Pressure from './WeatherImages/circle-up-solid.svg'
+
 
 function Weather(){
-    const [weatherData, setWeatherData] = useState(null);
+    const [weatherData, setWeatherData] = useState({
+        icon: '//cdn.weatherapi.com/weather/64x64/night/122.png'
+    });
     const [codeCountry, setCodeCountry] = useState(null);
     async function getWeather(){
         //Get city name
@@ -12,20 +18,27 @@ function Weather(){
         //Decode to JSON
         const data = await apiURL.json()
 
-        //console.log(data);
+        console.log(data);
         
         let weather = data.current.condition.text;
         let icon = data.current.condition.icon;
         let name = data.location.name;
         let country = data.location.country;
         let region = data.location.region;
+        let feelslike_c = data.current.feelslike_c + 'C°';
+        let humidity = data.current.humidity + '%';
+        let pressure_mb = data.current.pressure_mb + 'mb';
+
         
         setWeatherData({
             weather,
             icon,
             name,
             country,
-            region
+            region,
+            feelslike_c,
+            humidity,
+            pressure_mb,
         });
         
 
@@ -71,6 +84,39 @@ function Weather(){
                     </div>
                     <section className={styles.cardText}>
                         <p>{weatherData?.weather}</p>
+                    </section>
+                </div>
+
+                <div className={styles.cardContainer}>
+                    <div className={styles.card}>
+                        <section className={styles.cardImage}>
+                            <img src={Temperature} alt="temperature" />
+                        </section>
+                    </div>
+                    <section className={styles.cardText}>
+                        <p>{weatherData?.feelslike_c}</p>
+                    </section>
+                </div>
+
+                <div className={styles.cardContainer}>
+                    <div className={styles.card}>
+                        <section className={styles.cardImage}>
+                            <img src={Humidity} alt="humidity" />
+                        </section>
+                    </div>
+                    <section className={styles.cardText}>
+                        <p>{weatherData?.humidity}</p>
+                    </section>
+                </div>
+
+                <div className={styles.cardContainer}>
+                    <div className={styles.card}>
+                        <section className={styles.cardImage}>
+                            <img src={Pressure} alt="humidity" />
+                        </section>
+                    </div>
+                    <section className={styles.cardText}>
+                        <p>{weatherData?.pressure_mb}</p>
                     </section>
                 </div>
     
