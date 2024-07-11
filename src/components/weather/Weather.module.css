@@ -1,0 +1,44 @@
+.box{
+    border-radius: 20px;
+    background-color: #3f61fb;
+    padding: 20px;
+    width: 500px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 1em;
+
+    box-shadow: 4px 4px 10px #00000041;
+}
+
+.inputContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.inputContainer > label{
+    font-weight: bold;
+    font-size: 1.3em;
+    color: #e5e5e5;
+}
+
+.inputContainer > input{
+    border: none;
+    border-radius: 20px;
+    padding: 5px;
+    outline: none;
+}
+
+.getWeather{
+    border: none;
+    border-radius: 20px;
+    padding: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.weatherImage{
+    width: 30px;
+}
